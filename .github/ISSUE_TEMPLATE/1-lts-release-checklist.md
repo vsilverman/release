@@ -35,8 +35,8 @@ This role should rotate between LTS releases
   - [ ] [jenkinsci/docker](https://github.com/jenkinsci/docker)
   - [ ] [jenkins-infra/release](https://github.com/jenkins-infra/release)
 
-- [ ] Check with the Jenkins Infrastructure team for backports on repositories [jenkinsci/packaging](https://github.com/jenkinsci/packaging), [jenkinsci/docker](https://github.com/jenkinsci/docker) and [jenkins-infra/release](https://github.com/jenkins-infra/release) as per https://github.com/jenkins-infra/release/blob/master/docs/releases.md#open-a-backporting-pr.
-  - A message one or two weeks before the final LTS release in the Matrix channel `#jenkins-infra` mentioning this issue and this item is enough: they will own the backports
+- [ ] Create an helpdesk issue for the backports on repositories [jenkinsci/packaging](https://github.com/jenkinsci/packaging), [jenkinsci/docker](https://github.com/jenkinsci/docker) and [jenkins-infra/release](https://github.com/jenkins-infra/release) as per https://github.com/jenkins-infra/release/blob/master/docs/releases.md#open-a-backporting-pr. (Select "Release backports preparation" in https://github.com/jenkins-infra/helpdesk/issues/new/choose)
+  - This issue should be open two weeks before the final LTS release so those backports can be ready one week before the release.
 
 - [ ] Create a pull request to update [bom](https://github.com/jenkinsci/bom) to the weekly version that will be the base of the release line (and strike this out for new point release).
       Assure that the [bom-weekly version number](https://github.com/jenkinsci/bom/blob/master/sample-plugin/pom.xml#L17) is already testing the base of the release line or a version newer than the base of the release line.
@@ -85,8 +85,8 @@ The [documentation](https://github.com/jenkins-infra/release/blob/master/docs/re
 
 ## LTS release
 
-- [ ] Check with the Jenkins Infrastructure team that backports on repositories [jenkinsci/packaging](https://github.com/jenkinsci/packaging), [jenkinsci/docker](https://github.com/jenkinsci/docker) and [jenkins-infra/release](https://github.com/jenkins-infra/release) are completed and merged.
-  - A message two days prior to the release in the Matrix channel `#jenkins-infra` mentioning this issue and this item is enough
+- [ ] Check with the Jenkins Infrastructure team that backports on repositories [jenkinsci/packaging](https://github.com/jenkinsci/packaging), [jenkinsci/docker](https://github.com/jenkinsci/docker) and [jenkins-infra/release](https://github.com/jenkins-infra/release) are completed, up to date and merged.
+  - A message two or three days prior to the release in the Matrix channel `#jenkins-infra` mentioning this issue and the backports preparation helpdesk issue is enough.
 
 - [ ] Ensure `JENKINS_VERSION` is updated to the proper version in the packaging profile: https://github.com/jenkins-infra/release/blob/stable-2.xxx/profile.d/stable
 
@@ -130,8 +130,8 @@ The [documentation](https://github.com/jenkins-infra/release/blob/master/docs/re
   - [ ] Confirm with the Jenkins Infrastructure team that it can be enabled with a message in #jenkins-infra
   - [ ] Enable it
   - [ ] Trigger a scan repository and watch for triggered jobs (cancel those of old tags if any)
+  - [ ] As soon as the tag build is started, disable the job again
   - [ ] Wait for the build completion
-  - [ ] Disable the job again
 
 - [ ] Confirm that the images are available at [Docker hub](https://hub.docker.com/r/jenkins/jenkins/tags).
 
